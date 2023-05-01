@@ -6,4 +6,4 @@ The bindings are based on the documentation here specifically: <https://lib.open
 
 Better documentation (and examples) soon, I hope. :p
 
-NOTE: Line 20 of libopenmpt.py says `LIBOPENMPT = ctypes.cdll.LoadLibrary("libopenmpt_binaries/bin/x86/libopenmpt.dll")`. You should change the library location to fit the binary of your CPU architecture.
+NOTE: Line 20 of libopenmpt.py says `LIBOPENMPT = ctypes.cdll.LoadLibrary("libopenmpt_binaries/bin/x86/libopenmpt.dll")`. You should change the library location to fit the binary for your CPU architecture.
