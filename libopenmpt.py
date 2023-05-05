@@ -130,7 +130,7 @@ openmpt_could_open_probability2.argtypes = [
     c_void_p,  # errfunc
     c_void_p,  # erruser
     POINTER(c_int),  # error
-    POINTER(c_char_p),  # error_message_const
+    POINTER(c_char_p),  # error_message
 ]
 openmpt_could_open_probability2.restype = c_double
 
@@ -191,7 +191,7 @@ openmpt_error_is_transient.argtypes = [
 ]
 openmpt_error_is_transient.restype = c_int
 
-openmpt_error_string = LIBOPENMPT.openmpt_error_string  # const
+openmpt_error_string = LIBOPENMPT.openmpt_error_string
 openmpt_error_string.argtypes = [
     c_int,  # error
 ]
@@ -199,7 +199,7 @@ openmpt_error_string.restype = c_char_p
 
 openmpt_free_string = LIBOPENMPT.openmpt_free_string
 openmpt_free_string.argtypes = [
-    c_char_p,  # str_const
+    c_char_p,  # str
 ]
 openmpt_free_string.restype = None
 
@@ -209,31 +209,31 @@ openmpt_get_core_version.restype = c_uint32
 openmpt_get_library_version = LIBOPENMPT.openmpt_get_library_version
 openmpt_get_library_version.restype = c_uint32
 
-openmpt_get_string = LIBOPENMPT.openmpt_get_string  # const
+openmpt_get_string = LIBOPENMPT.openmpt_get_string
 openmpt_get_string.argtypes = [
-    c_char_p,  # key_const
+    c_char_p,  # key
 ]
 openmpt_get_string.restype = c_char_p
 
-openmpt_get_supported_extensions = LIBOPENMPT.openmpt_get_supported_extensions  # const
+openmpt_get_supported_extensions = LIBOPENMPT.openmpt_get_supported_extensions
 openmpt_get_supported_extensions.restype = c_char_p
 
 openmpt_is_extension_supported = LIBOPENMPT.openmpt_is_extension_supported
 openmpt_is_extension_supported.argtypes = [
-    c_char_p,  # extension_const
+    c_char_p,  # extension
 ]
 openmpt_is_extension_supported.restype = c_int
 
 openmpt_log_func_default = LIBOPENMPT.openmpt_log_func_default
 openmpt_log_func_default.argtypes = [
-    c_char_p,  # message_const
+    c_char_p,  # message
     c_void_p,  # user
 ]
 openmpt_log_func_default.restype = None
 
 openmpt_log_func_silent = LIBOPENMPT.openmpt_log_func_silent
 openmpt_log_func_silent.argtypes = [
-    c_char_p,  # message_const
+    c_char_p,  # message
     c_void_p,  # user
 ]
 openmpt_log_func_silent.restype = None
@@ -244,7 +244,7 @@ openmpt_module_create.argtypes = [
     c_void_p,  # stream
     c_void_p,  # logfunc
     c_void_p,  # loguser
-    POINTER(c_void_p),  # ctls_const
+    POINTER(c_void_p),  # ctls
 ]
 openmpt_module_create.restype = POINTER(openmpt_module)
 
@@ -257,82 +257,82 @@ openmpt_module_create2.argtypes = [
     c_void_p,  # errfunc
     c_void_p,  # erruser
     POINTER(c_int),  # error
-    POINTER(c_char_p),  # error_message_const
-    POINTER(c_void_p),  # ctls_const
+    POINTER(c_char_p),  # error_message
+    POINTER(c_void_p),  # ctls
 ]
 openmpt_module_create2.restype = POINTER(openmpt_module)
 
 openmpt_module_create_from_memory = LIBOPENMPT.openmpt_module_create_from_memory
 openmpt_module_create_from_memory.argtypes = [
-    c_void_p,  # filedata_const
+    c_void_p,  # filedata
     c_size_t,  # filesize
     c_void_p,  # logfunc
     c_void_p,  # loguser
-    POINTER(c_void_p),  # ctls_const
+    POINTER(c_void_p),  # ctls
 ]
 openmpt_module_create_from_memory.restype = POINTER(openmpt_module)
 
 openmpt_module_create_from_memory2 = LIBOPENMPT.openmpt_module_create_from_memory2
 openmpt_module_create_from_memory2.argtypes = [
-    c_void_p,  # filedata_const
+    c_void_p,  # filedata
     c_size_t,  # filesize
     c_void_p,  # logfunc
     c_void_p,  # loguser
     c_void_p,  # errfunc
     c_void_p,  # erruser
     POINTER(c_int),  # error
-    POINTER(c_char_p),  # error_message_const
-    c_void_p,  # ctls_const
+    POINTER(c_char_p),  # error_message
+    c_void_p,  # ctls
 ]
 openmpt_module_create_from_memory2.restype = POINTER(openmpt_module)
 
-openmpt_module_ctl_get = LIBOPENMPT.openmpt_module_ctl_get  # const
+openmpt_module_ctl_get = LIBOPENMPT.openmpt_module_ctl_get
 openmpt_module_ctl_get.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
 ]
 openmpt_module_ctl_get.restype = c_char_p
 
 openmpt_module_ctl_get_boolean = LIBOPENMPT.openmpt_module_ctl_get_boolean
 openmpt_module_ctl_get_boolean.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
 ]
 openmpt_module_ctl_get_boolean.restype = c_int
 
 openmpt_module_ctl_get_floatingpoint = LIBOPENMPT.openmpt_module_ctl_get_floatingpoint
 openmpt_module_ctl_get_floatingpoint.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
 ]
 openmpt_module_ctl_get_floatingpoint.restype = c_double
 
 openmpt_module_ctl_get_integer = LIBOPENMPT.openmpt_module_ctl_get_integer
 openmpt_module_ctl_get_integer.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
 ]
 openmpt_module_ctl_get_integer.restype = c_int64
 
-openmpt_module_ctl_get_text = LIBOPENMPT.openmpt_module_ctl_get_text  # const
+openmpt_module_ctl_get_text = LIBOPENMPT.openmpt_module_ctl_get_text
 openmpt_module_ctl_get_text.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
 ]
 openmpt_module_ctl_get_text.restype = c_char_p
 
 openmpt_module_ctl_set = LIBOPENMPT.openmpt_module_ctl_set
 openmpt_module_ctl_set.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
-    c_char_p,  # value_const
+    c_char_p,  # ctl
+    c_char_p,  # value
 ]
 openmpt_module_ctl_set.restype = c_int
 
 openmpt_module_ctl_set_boolean = LIBOPENMPT.openmpt_module_ctl_set_boolean
 openmpt_module_ctl_set_boolean.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
     c_int,  # value
 ]
 openmpt_module_ctl_set_boolean.restype = c_int
@@ -340,7 +340,7 @@ openmpt_module_ctl_set_boolean.restype = c_int
 openmpt_module_ctl_set_floatingpoint = LIBOPENMPT.openmpt_module_ctl_set_floatingpoint
 openmpt_module_ctl_set_floatingpoint.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
     c_double,  # value
 ]
 openmpt_module_ctl_set_floatingpoint.restype = c_int
@@ -348,7 +348,7 @@ openmpt_module_ctl_set_floatingpoint.restype = c_int
 openmpt_module_ctl_set_integer = LIBOPENMPT.openmpt_module_ctl_set_integer
 openmpt_module_ctl_set_integer.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
+    c_char_p,  # ctl
     c_int64,  # value
 ]
 openmpt_module_ctl_set_integer.restype = c_int
@@ -356,8 +356,8 @@ openmpt_module_ctl_set_integer.restype = c_int
 openmpt_module_ctl_set_text = LIBOPENMPT.openmpt_module_ctl_set_text
 openmpt_module_ctl_set_text.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # ctl_const
-    c_char_p,  # value_const
+    c_char_p,  # ctl
+    c_char_p,  # value
 ]
 openmpt_module_ctl_set_text.restype = c_int
 
@@ -381,7 +381,7 @@ openmpt_module_error_get_last.restype = c_int
 
 openmpt_module_error_get_last_message = (
     LIBOPENMPT.openmpt_module_error_get_last_message
-)  # const
+)
 openmpt_module_error_get_last_message.argtypes = [
     POINTER(c_void_p),  # mod
 ]
@@ -396,7 +396,7 @@ openmpt_module_error_set_last.restype = None
 
 openmpt_module_format_pattern_row_channel = (
     LIBOPENMPT.openmpt_module_format_pattern_row_channel
-)  # const
+)
 openmpt_module_format_pattern_row_channel.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # pattern
@@ -409,7 +409,7 @@ openmpt_module_format_pattern_row_channel.restype = c_char_p
 
 openmpt_module_format_pattern_row_channel_command = (
     LIBOPENMPT.openmpt_module_format_pattern_row_channel_command
-)  # const
+)
 openmpt_module_format_pattern_row_channel_command.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # pattern
@@ -419,14 +419,14 @@ openmpt_module_format_pattern_row_channel_command.argtypes = [
 ]
 openmpt_module_format_pattern_row_channel_command.restype = c_char_p
 
-openmpt_module_get_channel_name = LIBOPENMPT.openmpt_module_get_channel_name  # const
+openmpt_module_get_channel_name = LIBOPENMPT.openmpt_module_get_channel_name
 openmpt_module_get_channel_name.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # index
 ]
 openmpt_module_get_channel_name.restype = c_char_p
 
-openmpt_module_get_ctls = LIBOPENMPT.openmpt_module_get_ctls  # const
+openmpt_module_get_ctls = LIBOPENMPT.openmpt_module_get_ctls
 openmpt_module_get_ctls.argtypes = [
     POINTER(c_void_p),  # mod
 ]
@@ -531,21 +531,21 @@ openmpt_module_get_duration_seconds.restype = c_double
 
 openmpt_module_get_instrument_name = (
     LIBOPENMPT.openmpt_module_get_instrument_name
-)  # const
+)
 openmpt_module_get_instrument_name.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # index
 ]
 openmpt_module_get_instrument_name.restype = c_char_p
 
-openmpt_module_get_metadata = LIBOPENMPT.openmpt_module_get_metadata  # const
+openmpt_module_get_metadata = LIBOPENMPT.openmpt_module_get_metadata
 openmpt_module_get_metadata.argtypes = [
     POINTER(c_void_p),  # mod
-    c_char_p,  # key_const
+    c_char_p,  # key
 ]
 openmpt_module_get_metadata.restype = c_char_p
 
-openmpt_module_get_metadata_keys = LIBOPENMPT.openmpt_module_get_metadata_keys  # const
+openmpt_module_get_metadata_keys = LIBOPENMPT.openmpt_module_get_metadata_keys
 openmpt_module_get_metadata_keys.argtypes = [
     POINTER(c_void_p),  # mod
 ]
@@ -587,7 +587,7 @@ openmpt_module_get_num_subsongs.argtypes = [
 ]
 openmpt_module_get_num_subsongs.restype = c_int32
 
-openmpt_module_get_order_name = LIBOPENMPT.openmpt_module_get_order_name  # const
+openmpt_module_get_order_name = LIBOPENMPT.openmpt_module_get_order_name
 openmpt_module_get_order_name.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # index
@@ -601,7 +601,7 @@ openmpt_module_get_order_pattern.argtypes = [
 ]
 openmpt_module_get_order_pattern.restype = c_int32
 
-openmpt_module_get_pattern_name = LIBOPENMPT.openmpt_module_get_pattern_name  # const
+openmpt_module_get_pattern_name = LIBOPENMPT.openmpt_module_get_pattern_name
 openmpt_module_get_pattern_name.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # index
@@ -647,7 +647,7 @@ openmpt_module_get_repeat_count.argtypes = [
 ]
 openmpt_module_get_repeat_count.restype = c_int32
 
-openmpt_module_get_sample_name = LIBOPENMPT.openmpt_module_get_sample_name  # const
+openmpt_module_get_sample_name = LIBOPENMPT.openmpt_module_get_sample_name
 openmpt_module_get_sample_name.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # index
@@ -660,7 +660,7 @@ openmpt_module_get_selected_subsong.argtypes = [
 ]
 openmpt_module_get_selected_subsong.restype = c_int32
 
-openmpt_module_get_subsong_name = LIBOPENMPT.openmpt_module_get_subsong_name  # const
+openmpt_module_get_subsong_name = LIBOPENMPT.openmpt_module_get_subsong_name
 openmpt_module_get_subsong_name.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # index
@@ -669,7 +669,7 @@ openmpt_module_get_subsong_name.restype = c_char_p
 
 openmpt_module_highlight_pattern_row_channel = (
     LIBOPENMPT.openmpt_module_highlight_pattern_row_channel
-)  # const
+)
 openmpt_module_highlight_pattern_row_channel.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # pattern
@@ -682,7 +682,7 @@ openmpt_module_highlight_pattern_row_channel.restype = c_char_p
 
 openmpt_module_highlight_pattern_row_channel_command = (
     LIBOPENMPT.openmpt_module_highlight_pattern_row_channel_command
-)  # const
+)
 openmpt_module_highlight_pattern_row_channel_command.argtypes = [
     POINTER(c_void_p),  # mod
     c_int32,  # pattern
@@ -852,7 +852,7 @@ openmpt_module_set_repeat_count.restype = c_int
 openmpt_probe_file_header = LIBOPENMPT.openmpt_probe_file_header
 openmpt_probe_file_header.argtypes = [
     c_uint64,  # flags
-    c_void_p,  # data_const
+    c_void_p,  # data
     c_size_t,  # size
     c_uint64,  # filesize
     c_void_p,  # logfunc
@@ -860,7 +860,7 @@ openmpt_probe_file_header.argtypes = [
     c_void_p,  # errfunc
     c_void_p,  # erruser
     POINTER(c_int),  # error
-    POINTER(c_char_p),  # error_message_const
+    POINTER(c_char_p),  # error_message
 ]
 openmpt_probe_file_header.restype = c_int
 
@@ -874,7 +874,7 @@ openmpt_probe_file_header_from_stream.argtypes = [
     c_void_p,  # errfunc
     c_void_p,  # erruser
     POINTER(c_int),  # error
-    POINTER(c_char_p),  # error_message_const
+    POINTER(c_char_p),  # error_message
 ]
 openmpt_probe_file_header_from_stream.restype = c_int
 
@@ -888,14 +888,14 @@ openmpt_probe_file_header_without_filesize = (
 )
 openmpt_probe_file_header_without_filesize.argtypes = [
     c_uint64,  # flags
-    c_void_p,  # data_const
+    c_void_p,  # data
     c_size_t,  # size
     c_void_p,  # logfunc
     c_void_p,  # loguser
     c_void_p,  # errfunc
     c_void_p,  # erruser
     POINTER(c_int),  # error
-    POINTER(c_char_p),  # error_message_const
+    POINTER(c_char_p),  # error_message
 ]
 openmpt_probe_file_header_without_filesize.restype = c_int
 
@@ -904,7 +904,7 @@ openmpt_probe_file_header_without_filesize.restype = c_int
 # openmpt_stream_buffer_init = LIBOPENMPT.openmpt_stream_buffer_init
 # openmpt_stream_buffer_init.argtypes = [
 #     c_void_p,  # buffer
-#     c_void_p,  # file_data_const
+#     c_void_p,  # file_data
 #     c_int64,  # file_size
 # ]
 # openmpt_stream_buffer_init.restype = None
