@@ -77,35 +77,11 @@ openmpt_stream_seek_func = ctypes.CFUNCTYPE(c_int, c_void_p, c_int64, c_int)
 
 openmpt_stream_tell_func = ctypes.CFUNCTYPE(c_int64, c_void_p)
 
-
-class openmpt_module(Structure):
-    """Opaque type representing a libopenmpt module."""
-
-
 openmpt_module = c_void_p
-
-
-class openmpt_module_initial_ctl(Structure):
-    """"""
 
 openmpt_module_initial_ctl = c_void_p
 
-
-class openmpt_stream_buffer(Structure):
-    """"""
-
-
 openmpt_stream_buffer = c_void_p
-
-
-class openmpt_stream_callbacks(Structure):
-    """Stream callbacks.
-    Stream callbacks used by libopenmpt for stream operations. See alsoopenmpt_stream_get_file_callbacks
-
-    openmpt_stream_get_fd_callbacks
-
-    openmpt_stream_get_buffer_callbacks"""
-
 
 openmpt_stream_callbacks = c_void_p
 
