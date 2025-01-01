@@ -64,6 +64,29 @@ error_message = ctypes.c_char_p()
 error = ctypes.c_int()
 error_message = ctypes.c_char_p()
 
+header_size = libopenmpt.openmpt_probe_file_header_get_recommended_size()
+can_read = libopenmpt.openmpt_probe_file_header(
+    ctypes.c_uint64(libopenmpt.OPENMPT_PROBE_FILE_HEADER_FLAGS_DEFAULT), # uint_64t flags
+    module_data, # const void * data
+    header_size, # size_t size
+    module_size, # uint_64t filesize
+    openmpt_log_func(log_callback), # openmpt_log_func logfunc
+    None, # void * loguser
+    openmpt_error_func(error_callback),  # openmpt_error_func errfunc
+    None,  # void * erruser
+    ctypes.byref(error),  # int * error
+    ctypes.byref(error_message),  # const char ** error_message
+)
+
+if can_read == libopenmpt.OPENMPT_PROBE_FILE_HEADER_RESULT_SUCCESS:
+    pass
+elif can_read == libopenmpt.OPENMPT_PROBE_FILE_HEADER_RESULT_FAILURE:
+    raise TypeError("The file is not supported by libopenmpt.")
+elif libopenmpt.OPENMPT_PROBE_FILE_HEADER_RESULT_WANTMOREDATA:
+    raise NotImplementedError("An answer could not be determined with the amount of data provided. You may have to manually change the header_size")
+elif can_read == libopenmpt.OPENMPT_PROBE_FILE_HEADER_RESULT_ERROR:
+    raise SystemError("An internal error occured.")
+
 mod = load_mod(
     module_data,  # const void * filedata
     module_size,  # size_t filesize
